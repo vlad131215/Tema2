@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numere Armstrong</title>
+</head>
+<body>
+
+<h2>Introduceti intervalul pentru a gasi numerele Amstrong:</h2>
+<p>Introduceti doua numere separate prin virgula, de exemplu 100,1000:</p>
+<input type="text" id="interval">
+<button onclick="gasesteNumereAmstrong()">Gaseste numerele Armstrong</button>
+<p id="rezultat"></p>
+
+<script>
+function gasesteNumereAmstrong() {
+    var intervalInput = document.getElementById("interval").value;
+    var interval = intervalInput.split(",");
+    var min = parseInt(interval[0]);
+    var max = parseInt(interval[1]);
+    
+    var numereAmstrong = [];
+    
+    for (var numar = min; numar <= max; numar++) {
+        if (esteNumarAmstrong(numar)) {
+            numereAmstrong.push(numar);
+        }
+    }
+    
+    var rezultatElement = document.getElementById("rezultat");
+    rezultatElement.textContent = "Numerele Armstrong din intervalul dat sunt: " + numereAmstrong.join(", ");
+}
+
+function esteNumarAmstrong(numar) {
+    var cifre = numar.toString().split("");
+    var sumaCuburiCifre = 0;
+    
+    for (var i = 0; i < cifre.length; i++) {
+        sumaCuburiCifre += Math.pow(parseInt(cifre[i]), cifre.length);
+    }
+    
+    return sumaCuburiCifre === numar;
+}
+</script>
+
+</body>
+</html>
