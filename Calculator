@@ -1,0 +1,23 @@
+// Funcție pentru a prelua două numere de la tastatură și a efectua operațiile de înmulțire și împărțire
+function calculeaza() {
+    // Preluarea valorilor introduse de utilizator de la tastatură
+    var numar1 = parseFloat(prompt("Introduceți primul număr:"));
+    var numar2 = parseFloat(prompt("Introduceți al doilea număr:"));
+
+    // Verificare dacă ambele valori sunt numere valide
+    if (!isNaN(numar1) && !isNaN(numar2)) {
+        // Calcularea rezultatelor
+        var inmultire = numar1 * numar2;
+        var impartire = numar1 / numar2;
+
+        // Afisarea rezultatelor
+        console.log("Rezultatul înmulțirii este: " + inmultire);
+        console.log("Rezultatul împărțirii este: " + impartire);
+    } else {
+        // Mesaj de eroare în cazul în care valorile introduse nu sunt numere valide
+        console.log("Introduceți numere valide.");
+    }
+}
+
+// Apelarea funcției pentru a efectua calculele
+calculeaza();
